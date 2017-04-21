@@ -1,7 +1,8 @@
 'use strict';
+const  domainContext = require('connect-reqcontext');
 
 const GetCurrent = () => {
-	return process.domain.applicationContext;
+	return domainContext.get('applicationContext');
 }
 
 class ApplicationContext {
