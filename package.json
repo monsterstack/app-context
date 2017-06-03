@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "connect-reqcontext": "^0.1.0",
     "cordjs-zone": "^0.3.1"
   }
 }
