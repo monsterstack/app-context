@@ -1,8 +1,8 @@
 'use strict';
-const  domainContext = require('connect-reqcontext');
+//const  domainContext = require('connect-reqcontext');
 
 const GetCurrent = () => {
-	return domainContext.get('applicationContext');
+	return zone.get('applicationContext');
 }
 
 class ApplicationContext {
@@ -19,5 +19,24 @@ class ApplicationContext {
 	}
 }
 
+class ApplicationContextMiddleware {
+	constructor() {
+
+	}
+
+	startContext() {
+		return (req, res, next) => {
+			next();
+		}
+	}
+
+	stopContext() {
+		return (req, res, next) => {
+			next();
+		}
+	}
+}
+
 module.exports.ApplicationContext = ApplicationContext;
+module.exports.ApplicationContextMiddleware = ApplicationContextMiddleware;
 module.exports.GetCurrent = GetCurrent;
