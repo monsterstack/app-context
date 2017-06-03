@@ -27,7 +27,7 @@ class ApplicationContextMiddleware {
 
 	startContext() {
 		return (req, res, next) => {
-			zone.create(() => {
+			zone.run(() => {
 				zone.applicationContext = new ApplicationContext();
 				next();
 			});
