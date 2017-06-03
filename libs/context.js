@@ -1,9 +1,9 @@
 'use strict';
-require('zone').enable();
+const zone = require('cordjs-zone')
 //const  domainContext = require('connect-reqcontext');
 
 const GetCurrent = () => {
-	return zone.get('applicationContext');
+	return zone.applicationContext;
 }
 
 class ApplicationContext {
@@ -28,7 +28,7 @@ class ApplicationContextMiddleware {
 	startContext() {
 		return (req, res, next) => {
 			zone.create(() => {
-				zone.set('applicationContext', new ApplicationContext());
+				zone.applicationContext = new ApplicationContext();
 				next();
 			});
 		}
