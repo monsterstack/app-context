@@ -1,4 +1,5 @@
 'use strict';
+require('zone').enable();
 //const  domainContext = require('connect-reqcontext');
 
 const GetCurrent = () => {
@@ -26,12 +27,16 @@ class ApplicationContextMiddleware {
 
 	startContext() {
 		return (req, res, next) => {
-			next();
+			zone.create(() => {
+				zone.set('applicationContext', new ApplicationContext());
+				next();
+			});
 		}
 	}
 
 	stopContext() {
 		return (req, res, next) => {
+			zone.return();
 			next();
 		}
 	}
