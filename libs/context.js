@@ -26,7 +26,6 @@ class ApplicationContextMiddleware {
 
 	startContext() {
 		return (req, res, next) => {
-			debugger;
 			zone.run(() => {
 				zone.applicationContext = new ApplicationContext();
 				next();
