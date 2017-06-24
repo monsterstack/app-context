@@ -35,7 +35,6 @@ class ApplicationContextMiddleware {
 
 	stopContext() {
 		return (req, res, next) => {
-			zone.return();
 			next();
 		}
 	}
